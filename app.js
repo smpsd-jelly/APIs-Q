@@ -1,7 +1,7 @@
 const express = require(`express`);
 const router = express.Router();
 const { io } = require(`./initial`);
-const login = require(`./src/global`)
+const login = require(`./src/authen`)
 
 io.on(`connection`, (socket) => {
     console.log("Connection from :" + socket.id);
