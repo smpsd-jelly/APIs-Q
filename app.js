@@ -6,11 +6,9 @@ const login = require(`./src/authen`)
 io.on(`connection`, (socket) => {
     console.log("Connection from :" + socket.id);
 
+    socket.on(`req_login_pin_or_rfid`, async(data) => {
+        const result = await login.reqLoginUser(data);
+        socket.emit(`res_login_pin_or_rfid`,result);
+    });
 
-
-
-socket.on(`get_all_pin_id`, async(data) => {
-    const result = await login.checkRfid(data);
-    socket.emit(`return_all_pin_id`,result);
-});
 });
