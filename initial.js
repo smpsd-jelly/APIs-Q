@@ -35,4 +35,4 @@ httpServer.listen(PORT, () => {
 
 const io = new Server(httpServer, {cors:{origin:'*'}})
 
-module.exports = { io, pool };
+module.exports = { io, pool,  router,app};
